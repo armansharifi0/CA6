@@ -45,7 +45,7 @@ string hex_conversion(int number)
     reverse(result.begin(), result.end());
 }
 
-void tree::add_node(Node n)
+void tree::add_node(Node* n)
 {
     nodes.push_back(n);
 }
@@ -62,19 +62,19 @@ string tree::evaluate(char base)
         {
             for (int j = 0; j < max_index; j++)
             {
-            if (nodes[j].return_index() == i)
-                nodes[j].operation();
+            if (nodes[j]->return_index() == i)
+                nodes[j]->return_index();
                 index = j;
             }
         }else
         {
            for (int j = 0; j < max_index; j++)
             {
-            if (nodes[j].return_index() == i)
-                nodes[j].operation();
+            if (nodes[j]->return_index() == i)
+                nodes[j]->operation();
             } 
         }
-        result = nodes[index].get_output();
+        result = nodes[index]->get_output();
     }
 
     string evaluation;

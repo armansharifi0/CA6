@@ -14,26 +14,40 @@ void parser(tree &t, string order)
 
     if (pieces[3] == "AND")
     {
-        
         AND* tree_node = new AND(stoi(pieces[0]));
+        t.add_node(tree_node);
+
+
+        if (stoi(pieces[1]) != -1)
+        {
+            for (int i = 0; i < t.get_nodes().size(); i++)
+            {
+                if (t.get_nodes()[i]->return_index() == stoi(pieces[1]))
+                {
+                    tree_node->edge_maker()
+                }
+            }
+            
+        }
+        
      
-    }else if (pieces[0] == "create_account")
+    }else if (pieces[3] == "OR")
     {
 
-        vector<int> temp;
-        for (int i = 1; i < pieces.size() - 1; i++)
-            temp.push_back(stoi(pieces[i]));
-        b.make_account(temp,stod(pieces[pieces.size() - 1]));
+        OR* tree_node = new OR(stoi(pieces[0]));
+        t.add_node(tree_node);
 
-    }else if (pieces[0] == "add_owner")
+    }else if (pieces[3] == "NOT")
     {
     
-        b.add_owner(stoi(pieces[1]),stoi(pieces[2]));
+        NOT* tree_node = new NOT(stoi(pieces[0]));
+        t.add_node(tree_node);
 
-    }else if (pieces[0] == "book_transaction")
+    }else if (pieces[3] == "xor")
     {
 
-        b.book_transaction(stoi(pieces[1]), stoi(pieces[2]), stod(pieces[3]));
+        XOR* tree_node = new XOR(stoi(pieces[0]));
+        t.add_node(tree_node);
 
     }else if (pieces[0] == "approve_transaction" || pieces[0] == "decline_transaction")
     {
