@@ -59,5 +59,8 @@ int main()
     cout << "integer: " << sizeof(int) << endl;
 
     cout << 4 % 15 << endl;
+    //shayan
+    cout << 3 << endl;
+    cout << "hello" << endl;
 
 }
