@@ -51,7 +51,7 @@ void tree::add_node(Node* n)
 }
 
 
-string tree::evaluate(char base)
+void tree::evaluate(char base)
 {
     int result;
     int max_index = nodes.size();

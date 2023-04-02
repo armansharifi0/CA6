@@ -15,31 +15,31 @@ protected:
 };
 
 
-class dec : public NUM
+class deci : public NUM
 {
 public:
-    dec(int i, string v) : NUM(i, v) {}
+    deci(int i, string v) : NUM(i, v) {}
     virtual void operation();
 };
 
-class hex : public NUM
+class hexa : public NUM
 {
 public:
-    hex(int i, string v) : NUM(i, v) {}
+    hexa(int i, string v) : NUM(i, v) {}
     virtual void operation();
 };
 
-class oct : public NUM
+class octa : public NUM
 {
 public:
-    oct(int i, string v) : NUM(i, v) {}
+    octa(int i, string v) : NUM(i, v) {}
     virtual void operation();
 };
 
-class bin : public NUM
+class bina : public NUM
 {
 public:
-    bin(int i, string v) : NUM(i, v) {}
+    bina(int i, string v) : NUM(i, v) {}
     virtual void operation();
 };
 

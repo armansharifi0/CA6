@@ -24,7 +24,7 @@ void parser(tree &t, string order)
             {
                 if (t.get_nodes()[i]->return_index() == stoi(pieces[1]))
                 {
-                    tree_node->edge_maker()
+                    tree_node->edge_maker(t.get_nodes()[i]);
                 }
             }
             
@@ -37,33 +37,80 @@ void parser(tree &t, string order)
         OR* tree_node = new OR(stoi(pieces[0]));
         t.add_node(tree_node);
 
+        if (stoi(pieces[1]) != -1)
+        {
+            for (int i = 0; i < t.get_nodes().size(); i++)
+            {
+                if (t.get_nodes()[i]->return_index() == stoi(pieces[1]))
+                {
+                    tree_node->edge_maker(t.get_nodes()[i]);
+                }
+            }
+            
+        }
+
     }else if (pieces[3] == "NOT")
     {
     
         NOT* tree_node = new NOT(stoi(pieces[0]));
         t.add_node(tree_node);
 
-    }else if (pieces[3] == "xor")
+        if (stoi(pieces[1]) != -1)
+        {
+            for (int i = 0; i < t.get_nodes().size(); i++)
+            {
+                if (t.get_nodes()[i]->return_index() == stoi(pieces[1]))
+                {
+                    tree_node->edge_maker(t.get_nodes()[i]);
+                }
+            }
+            
+        }
+
+    }else if (pieces[3] == "XOR")
     {
 
         XOR* tree_node = new XOR(stoi(pieces[0]));
         t.add_node(tree_node);
 
-    }else if (pieces[0] == "approve_transaction" || pieces[0] == "decline_transaction")
+        if (stoi(pieces[1]) != -1)
+        {
+            for (int i = 0; i < t.get_nodes().size(); i++)
+            {
+                if (t.get_nodes()[i]->return_index() == stoi(pieces[1]))
+                {
+                    tree_node->edge_maker(t.get_nodes()[i]);
+                }
+            }
+            
+        }
+
+    }else if (pieces[2] == "input")
     {
-        Status reply;
-        if (pieces[0] == "approve_transaction")
-            reply = ACCEPTED;
-        else
-            reply = REJECTED;
+        
+        deci* tree_node = new deci(stoi(pieces[0]), pieces[3]);
 
-        b.inquiry_transaction(reply,stoi(pieces[1]),stoi(pieces[2]));
+        if (stoi(pieces[1]) != -1)
+        {
+            for (int i = 0; i < t.get_nodes().size(); i++)
+            {
+                if (t.get_nodes()[i]->return_index() == stoi(pieces[1]))
+                {
+                    tree_node->edge_maker(t.get_nodes()[i]);
+                }
+            }
+            
+        }
 
-
-    }else if (pieces[0] == "show_account")
+    }else if (pieces[0] == "evaluate")
     {
 
-        b.show_account(stoi(pieces[1]));
+        t.evaluate(pieces[0][2]);
+
+    }else if (pieces[0] == "rebase")
+    {
+
+        t.evaluate(pieces[0][2]);
 
     }
 
@@ -73,7 +120,7 @@ void parser(tree &t, string order)
 int main()
 {
 
-    bank b;    
+    tree t;    
     fstream newfile;
     newfile.open("../input.txt",ios::in);
     if (newfile.is_open()){
@@ -82,7 +129,7 @@ int main()
         {
             if (line == "\r")
                 break;
-            parser(b,line);
+            parser(t,line);
         }
         newfile.close();   
    }

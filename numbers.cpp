@@ -7,12 +7,12 @@ void NUM::edge_maker(Node* n)
 }
 
 
-void dec::operation()
+void deci::operation()
 {
     output = stoi(value);
 }
 
-void hex::operation()
+void hexa::operation()
 {
     int size = value.size();
     int j = 0;
@@ -36,7 +36,7 @@ void hex::operation()
     }
 }
 
-void oct::operation()
+void octa::operation()
 {
     int size = value.size();
     int j = 0;
@@ -48,7 +48,7 @@ void oct::operation()
     }
 }
 
-void bin::operation()
+void bina::operation()
 {
     int size = value.size();
     int j = 0;

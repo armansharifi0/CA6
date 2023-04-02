@@ -7,7 +7,7 @@ class tree
 {
 public:
     void add_node(Node* n);
-    string evaluate(char base);
+    void evaluate(char base);
     vector<Node*>& get_nodes() { return nodes; }
 private:
     vector<Node*> nodes;
