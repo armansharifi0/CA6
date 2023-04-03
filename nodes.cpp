@@ -46,7 +46,7 @@ int bit_to_int (vector<int> output)
     return number;
 }
 
-void Node::operation()
+int Node::operation()
 {
     throw not_defined_exception();
 
@@ -92,12 +92,14 @@ void AND::edge_maker(Node* n)
     edges.push_back(n);
 }
 
-void AND::operation()
+int AND::operation()
 {
+    int output = 0;
     for (int i = 0; i < 2 ; i++)
     {
-        output *= edges[i]->get_output();
+        output *= edges[i]->operation();
     }
+    return output;
 }
 
 void OR::edge_maker(Node* n)
@@ -105,12 +107,14 @@ void OR::edge_maker(Node* n)
     edges.push_back(n);
 }
 
-void OR::operation()
+int OR::operation()
 {
+    int output = 0;
     for (int i = 0; i < 2 ; i++)
     {
-        output += edges[i]->get_output();
+        output += edges[i]->operation();
     }
+    return output;
 }
 
 void NOT::edge_maker(Node* n)
@@ -118,10 +122,11 @@ void NOT::edge_maker(Node* n)
     edges.push_back(n);
 }
 
-void NOT::operation()
+int NOT::operation()
 {
-
-        output = -edges[0]->get_output();
+    int output = 0;
+    output = -edges[0]->operation();
+    return output;
 
 }
 
@@ -130,16 +135,17 @@ void XOR::edge_maker(Node* n)
     edges.push_back(n);
 }
 
-void XOR::operation()
+int XOR::operation()
 {
     vector<int> nodes_output;
     for (int i = 0; i < edges.size() ; i++)
     {
-        nodes_output.push_back(edges[i]->get_output());
+        nodes_output.push_back(edges[i]->operation());
     }
     sort(nodes_output.begin(), nodes_output.end());
 
     int nsize = nodes_output.size();
+    int output = 0;
     if (nsize % 2 == 1)
     {
         output = nodes_output[(nsize + 1)/2];
@@ -147,6 +153,7 @@ void XOR::operation()
     {
         output = (nodes_output[nsize/2] + nodes_output[(nsize + 1)/2]) / 2;
     }
+    return output;
 }
 
 void BAND::edge_maker(Node* n)
@@ -154,13 +161,14 @@ void BAND::edge_maker(Node* n)
     edges.push_back(n);
 }
 
-void BAND::operation()
+int BAND::operation()
 {
     vector<vector<int>> bitwise;
     vector<int> nodes_output;
+    int output = 0;
     for (int i = 0; i < 2 ; i++)
     {
-        nodes_output.push_back(edges[i]->get_output());
+        nodes_output.push_back(edges[i]->operation());
     }
 
     bitwise = int_to_bit(nodes_output);
@@ -180,6 +188,7 @@ void BAND::operation()
         result.push_back(bit);
     }
     output = bit_to_int(result);
+    return output;
 }
 
 void BOR::edge_maker(Node* n)
@@ -187,13 +196,14 @@ void BOR::edge_maker(Node* n)
     edges.push_back(n);
 }
 
-void BOR::operation()
+int BOR::operation()
 {
     vector<vector<int>> bitwise;
     vector<int> nodes_output;
+    int output = 0;
     for (int i = 0; i < 2 ; i++)
     {
-        nodes_output.push_back(edges[i]->get_output());
+        nodes_output.push_back(edges[i]->operation());
     }
 
     bitwise = int_to_bit(nodes_output);
@@ -213,6 +223,7 @@ void BOR::operation()
         result.push_back(bit);
     }
     output = bit_to_int(result);
+    return output;
 }
 
 void BNOT::edge_maker(Node* n)
@@ -221,13 +232,13 @@ void BNOT::edge_maker(Node* n)
 }
 
 
-void BNOT::operation()
+int BNOT::operation()
 {
     vector<vector<int>> bitwise;
     vector<int> node_output;
-    node_output.push_back(edges[0]->get_output());
+    node_output.push_back(edges[0]->operation());
     bitwise = int_to_bit(node_output);
-
+    int output = 0;
     vector<int> result;
     for (int i = 0; i < bitwise[0].size(); i++)
     {
@@ -240,6 +251,7 @@ void BNOT::operation()
         result.push_back(bit);
     }
     output = bit_to_int(result);
+    return output;
 }
 
 
@@ -248,13 +260,14 @@ void BXOR::edge_maker(Node* n)
     edges.push_back(n);
 }
 
-void BXOR::operation()
+int BXOR::operation()
 {
     vector<vector<int>> bitwise;
     vector<int> nodes_output;
-    for (int i = 0; i < 2 ; i++)
+    int output = 0;
+    for (int i = 0; i < edges.size() ; i++)
     {
-        nodes_output.push_back(edges[i]->get_output());
+        nodes_output.push_back(edges[i]->operation());
     }
 
     bitwise = int_to_bit(nodes_output);
@@ -278,4 +291,5 @@ void BXOR::operation()
         result.push_back(bit);
     }
     output = bit_to_int(result);
+    return output;
 }

@@ -14,6 +14,7 @@ string base_conversion(int number, int base)
         number /= base;
     }
     reverse(result.begin(), result.end());
+    return result;
 }
 
 string hex_conversion(int number)
@@ -43,6 +44,7 @@ string hex_conversion(int number)
         number /= 16;
     }
     reverse(result.begin(), result.end());
+    return result;
 }
 
 void tree::add_node(Node* n)
@@ -53,29 +55,16 @@ void tree::add_node(Node* n)
 
 void tree::evaluate(char base)
 {
-    int result;
-    int max_index = nodes.size();
-    for (int i = 1; i <= max_index; i++)
+    int number;
+    for (int i = 0; i < nodes.size(); i++)
     {
-        int index;
-        if (i == max_index)
+        if (nodes[i]->return_index() == 0)
         {
-            for (int j = 0; j < max_index; j++)
-            {
-            if (nodes[j]->return_index() == i)
-                nodes[j]->return_index();
-                index = j;
-            }
-        }else
-        {
-           for (int j = 0; j < max_index; j++)
-            {
-            if (nodes[j]->return_index() == i)
-                nodes[j]->operation();
-            } 
+            number = i;
+            break;
         }
-        result = nodes[index]->get_output();
     }
+    int result = nodes[number]->operation();
 
     string evaluation;
     if (base == 'd')

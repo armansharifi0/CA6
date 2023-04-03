@@ -7,15 +7,18 @@ void NUM::edge_maker(Node* n)
 }
 
 
-void deci::operation()
+int deci::operation()
 {
+    int output = 0;
     output = stoi(value);
+    return output;
 }
 
-void hexa::operation()
+int hexa::operation()
 {
     int size = value.size();
     int j = 0;
+    int output = 0;
     for (int i = size - 1 ; i >= 0; i--)
     {
         if ((value[i] - '0') < 10)
@@ -34,28 +37,33 @@ void hexa::operation()
             output += 15 * pow(16 , j);
         j++;
     }
+    return output;
 }
 
-void octa::operation()
+int octa::operation()
 {
     int size = value.size();
     int j = 0;
+    int output = 0;
     for (int i = size - 1 ; i >= 0; i--)
     {
         if ((value[i] - '0') < 10)
             output += (value[i] - '0') * pow(8 , j);
         j++;
     }
+    return output;
 }
 
-void bina::operation()
+int bina::operation()
 {
     int size = value.size();
     int j = 0;
+    int output = 0;
     for (int i = size - 1 ; i >= 0; i--)
     {
         if ((value[i] - '0') < 10)
             output += (value[i] - '0') * pow(2 , j);
         j++;
     }
+    return output;
 }
