@@ -13,11 +13,13 @@ class Node
 public:
     Node(int i, string n) : index(i), name(n) {}
     virtual int operation();
-    virtual void edge_maker();
+    virtual void edge_maker(Node* n);
     int return_index() { return index; }
     string return_name() { return name; }
     virtual string get_value();
     virtual void set_value(string v);
+    vector<Node*> get_edges() { return edges; }
+    void set_edges(vector<Node*> e) { edges = e; }
 protected:
     string value;
     string name;

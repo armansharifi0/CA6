@@ -4,35 +4,24 @@
 
 vector<vector<int>> int_to_bit(vector<int>& operands)
 {
-    int number = *(max_element(begin(operands),end(operands)));
-    int number2 = 0;
-    int power = 0;
-    while (number2 >= 0)
+    vector<vector<int>> bitwise;
+    for (int i = 0; i < operands.size(); i++)
     {
-        number2 = number - pow(2, power);
-        power++;
-    }
-    power--;
-
-    vector<vector<int>> bitwise_operands;
-    for (int j = 0; j < operands.size(); j++)
-    {
-        vector<int> element;
-        for (int i = power; i >= 0; i--)
+        int number = operands[i];
+        int quotient = 1;
+        int remainder;
+        vector<int> digits;
+        while (quotient != 0)
         {
-            number = number - pow(2, i);
-            if (number > 0)
-            {
-                element.push_back(1);
-            }else
-            {
-                element.push_back(0);
-                number = number + pow(2, i);
-            }
+            quotient = number / 2;
+            remainder = number % 2;
+            digits.push_back(remainder);
+            number /= 2;
         }
-        bitwise_operands.push_back(element);
+        reverse(digits.begin(), digits.end());
+        bitwise.push_back(digits);
     }
-    return bitwise_operands;
+    return bitwise;
 }
 
 int bit_to_int (vector<int> output)
@@ -41,7 +30,7 @@ int bit_to_int (vector<int> output)
     int number = 0;
     for (int i = 0; i < size; i++)
     {
-        number += output[i] * pow(2, size - i);
+        number += output[i] * pow(2, size - i - 1);
     }
     return number;
 }
@@ -58,16 +47,9 @@ int Node::operation()
 
 }
 
-void Node::edge_maker()
+void Node::edge_maker(Node* n)
 {
-    throw not_defined_exception();
-
-    try {
-
-    }catch (not_defined_exception ex) {
-        cerr << "Operation is not defined" << endl;
-    }
-
+    edges.push_back(n);
 }
 
 string Node::get_value()
@@ -94,7 +76,7 @@ void AND::edge_maker(Node* n)
 
 int AND::operation()
 {
-    int output = 0;
+    int output = 1;
     for (int i = 0; i < 2 ; i++)
     {
         output *= edges[i]->operation();

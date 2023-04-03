@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/main.cpp
+numbers.hpp
+/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/numbers.hpp
+sstream
+-
+fstream
+-
+algorithm
+-
+
 /mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/nodes.hpp
 iostream
 -
@@ -17,14 +27,4 @@ vector
 /mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/numbers.hpp
 nodes.hpp
 /mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/nodes.hpp
-
-/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/tree.cpp
-tree.hpp
-/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/tree.hpp
-algorithm
--
-
-/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/tree.hpp
-numbers.hpp
-/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/numbers.hpp
 

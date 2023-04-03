@@ -244,33 +244,6 @@ test.cpp.s:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.cpp.s
 .PHONY : test.cpp.s
 
-tree.o: tree.cpp.o
-
-.PHONY : tree.o
-
-# target to build an object file
-tree.cpp.o:
-	$(MAKE) -f CMakeFiles/CA6.dir/build.make CMakeFiles/CA6.dir/tree.cpp.o
-.PHONY : tree.cpp.o
-
-tree.i: tree.cpp.i
-
-.PHONY : tree.i
-
-# target to preprocess a source file
-tree.cpp.i:
-	$(MAKE) -f CMakeFiles/CA6.dir/build.make CMakeFiles/CA6.dir/tree.cpp.i
-.PHONY : tree.cpp.i
-
-tree.s: tree.cpp.s
-
-.PHONY : tree.s
-
-# target to generate assembly for a file
-tree.cpp.s:
-	$(MAKE) -f CMakeFiles/CA6.dir/build.make CMakeFiles/CA6.dir/tree.cpp.s
-.PHONY : tree.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -293,9 +266,6 @@ help:
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"
-	@echo "... tree.o"
-	@echo "... tree.i"
-	@echo "... tree.s"
 .PHONY : help
 
 

@@ -76,12 +76,12 @@ clean: CMakeFiles/test.dir/clean
 CMakeFiles/CA6.dir/all:
 	$(MAKE) -f CMakeFiles/CA6.dir/build.make CMakeFiles/CA6.dir/depend
 	$(MAKE) -f CMakeFiles/CA6.dir/build.make CMakeFiles/CA6.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target CA6"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/build/CMakeFiles --progress-num=1,2,3,4 "Built target CA6"
 .PHONY : CMakeFiles/CA6.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/CA6.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/CA6.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/build/CMakeFiles 0
 .PHONY : CMakeFiles/CA6.dir/rule
@@ -103,7 +103,7 @@ CMakeFiles/CA6.dir/clean:
 CMakeFiles/test.dir/all:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/build/CMakeFiles --progress-num=6,7 "Built target test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/build/CMakeFiles --progress-num=5,6 "Built target test"
 .PHONY : CMakeFiles/test.dir/all
 
 # Build rule for subdir invocation for target.

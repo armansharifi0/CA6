@@ -4,7 +4,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/CA6.dir/main.cpp.o"
   "CMakeFiles/CA6.dir/nodes.cpp.o"
   "CMakeFiles/CA6.dir/numbers.cpp.o"
-  "CMakeFiles/CA6.dir/tree.cpp.o"
 )
 
 # Per-language clean rules from dependency scanning.

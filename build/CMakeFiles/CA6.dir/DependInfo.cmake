@@ -7,7 +7,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/main.cpp" "/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/build/CMakeFiles/CA6.dir/main.cpp.o"
   "/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/nodes.cpp" "/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/build/CMakeFiles/CA6.dir/nodes.cpp.o"
   "/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/numbers.cpp" "/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/build/CMakeFiles/CA6.dir/numbers.cpp.o"
-  "/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/tree.cpp" "/mnt/c/Users/arman/OneDrive/Documents/C++/github/CA6/build/CMakeFiles/CA6.dir/tree.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
