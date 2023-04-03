@@ -58,6 +58,6 @@ int main()
     cout << "ashkan class: " << sizeof(ashkan) << endl;
     cout << "integer: " << sizeof(int) << endl;
 
-    cout << 4 % 15 << endl;
+    
 
 }
