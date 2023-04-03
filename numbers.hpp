@@ -7,39 +7,39 @@
 class NUM : public Node
 {
 public:
-    NUM (int i, string v) : Node(i), value(v) {}
+    NUM (int i, string v , string n) : Node(i, n) { value = v; }
     virtual void operation() = 0;
     virtual void edge_maker(Node* n);
-protected:
-    string value;
+    string get_value() { return value; }
+
 };
 
 
 class deci : public NUM
 {
 public:
-    deci(int i, string v) : NUM(i, v) {}
+    deci(int i, string v, string n) : NUM(i, v, n) {}
     virtual void operation();
 };
 
 class hexa : public NUM
 {
 public:
-    hexa(int i, string v) : NUM(i, v) {}
+    hexa(int i, string v, string n) : NUM(i, v, n) {}
     virtual void operation();
 };
 
 class octa : public NUM
 {
 public:
-    octa(int i, string v) : NUM(i, v) {}
+    octa(int i, string v, string n) : NUM(i, v, n) {}
     virtual void operation();
 };
 
 class bina : public NUM
 {
 public:
-    bina(int i, string v) : NUM(i, v) {}
+    bina(int i, string v, string n) : NUM(i, v, n) {}
     virtual void operation();
 };
 

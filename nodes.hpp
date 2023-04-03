@@ -11,12 +11,17 @@ class not_defined_exception {};
 class Node
 {
 public:
-    Node(int i) : index(i),output(0) {}
+    Node(int i, string n) : index(i), name(n), output(0) {}
     virtual void operation();
     virtual void edge_maker();
     int get_output() { return output; }
     int return_index() { return index; }
+    string return_name() { return name; }
+    virtual string get_value();
+    virtual void set_value(string v);
 protected:
+    string value;
+    string name;
     int output;
     int index;
     vector<Node*> edges; 
@@ -27,7 +32,7 @@ protected:
 class AND : public Node
 {
 public:
-    AND(int i) : Node(i) {}
+    AND(int i, string n) : Node(i , n) {}
     virtual void operation();
     virtual void edge_maker(Node* n);
 };
@@ -35,7 +40,7 @@ public:
 class OR : public Node
 {
 public:
-    OR(int i) : Node(i) {}
+    OR(int i, string n) : Node(i , n) {}
     virtual void operation();
     virtual void edge_maker(Node* n);
 };
@@ -43,7 +48,7 @@ public:
 class NOT : public Node
 {
 public:
-    NOT(int i) : Node(i) {}
+    NOT(int i, string n) : Node(i , n) {}
     virtual void operation();
     virtual void edge_maker(Node* n);
 };
@@ -52,7 +57,7 @@ public:
 class XOR : public Node
 {
 public:
-    XOR(int i) : Node(i) {}
+    XOR(int i, string n) : Node(i , n) {}
     virtual void operation();
     virtual void edge_maker(Node* n);
 };
@@ -60,7 +65,7 @@ public:
 class BAND : public Node
 {
 public:
-    BAND(int i) : Node(i) {}
+    BAND(int i, string n) : Node(i , n) {}
     virtual void operation();
     virtual void edge_maker(Node* n);
 };
@@ -68,7 +73,7 @@ public:
 class BOR : public Node
 {
 public:
-    BOR(int i) : Node(i) {}
+    BOR(int i, string n) : Node(i , n) {}
     virtual void operation();
     virtual void edge_maker(Node* n);
 };
@@ -76,7 +81,7 @@ public:
 class BNOT : public Node
 {
 public:
-    BNOT(int i) : Node(i) {}
+    BNOT(int i, string n) : Node(i , n) {}
     virtual void operation();
     virtual void edge_maker(Node* n);
 };
@@ -84,7 +89,7 @@ public:
 class BXOR : public Node
 {
 public:
-    BXOR(int i) : Node(i) {}
+    BXOR(int i, string n) : Node(i , n) {}
     virtual void operation();
     virtual void edge_maker(Node* n);
 };

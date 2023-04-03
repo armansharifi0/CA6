@@ -70,6 +70,23 @@ void Node::edge_maker()
 
 }
 
+string Node::get_value()
+{
+    throw not_defined_exception();
+
+    try {
+
+    }catch (not_defined_exception ex) {
+        cerr << "Operation is not defined" << endl;
+    }
+
+}
+
+void Node::set_value(string v)
+{
+    value = v;
+}
+
 void AND::edge_maker(Node* n)
 {
     edges.push_back(n);
